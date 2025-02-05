@@ -1,13 +1,18 @@
-using DesafioPOO.Models;
+namespace DesafioPOO.Models
+{
+    // Herdar da classe "Smartphone"
+    public class Iphone : Smartphone
+    {
+        // Construtor da classe Iphone
+        public Iphone(string numero, string modelo, string imei, int memoria)
+            : base(numero, modelo, imei, memoria) // Chama o construtor da classe base Smartphone
+        {
+        }
 
-Console.WriteLine("Smartphone Nókia:");
-Smartphone nokia = new Nokia(numero: "123456", modelo: "modelo 1", imei: "1111111", memoria: 64);
-nokia.Ligar(); // Corrigido para o método Ligar
-nokia.InstalarAplicativo("Whatsapp");
-
-Console.WriteLine("\n");
-
-Console.WriteLine("Smartphone Iphone:");
-Smartphone iphone = new Iphone(numero: "4987", modelo: "modelo 2", imei: "22222222", memoria: 128);
-iphone.ReceberLigacao();
-iphone.InstalarAplicativo("Telegram");
+        // Sobrescrever o método "InstalarAplicativo"
+        public override void InstalarAplicativo(string nomeApp)
+        {
+            Console.WriteLine($"Instalando o aplicativo {nomeApp} no Iphone...");
+        }
+    }
+}
